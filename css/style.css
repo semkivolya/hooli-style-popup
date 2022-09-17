@@ -1,0 +1,133 @@
+body{
+    font-family: sans-serif;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.category_container a:focus,
+.navigation__category a:focus {
+    box-shadow: 0 0 0 0.1em lightskyblue;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.navigation {
+    display: flex;
+    height: 75px;
+    position: relative; 
+    overflow: visible;
+    border: 1px solid red;
+}
+
+.navigation__categories{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation__category {
+    padding: 12px 24px;
+    border: 1px solid blue;
+}
+
+.toggle-popup:checked:focus + label{
+    box-shadow: 0 0 0 0.1em lightskyblue;
+} 
+
+.toggle-popup:focus + label{
+    box-shadow: 0 0 0 0.1em lightskyblue;
+}
+
+.toggle-popup:checked ~ .popup,
+.toggle-popup-secondary-block:checked  ~ .popup__secondary-block
+{
+    display: block;
+}
+
+.toggle-popup-secondary-block:checked + .toggle-secondary-block-checkbox{
+    display: none;
+}
+
+.toggle-secondary-block-checkbox{
+    display: block;
+    width: 100%;
+    height: 24px;
+    background-color: rgba(0,0,0, 0.2);
+    text-align: center;
+    padding: 6px;
+}
+
+/*Hidden checkboxes*/
+
+.toggle-popup,
+.toggle-popup-secondary-block{
+    position: absolute;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+
+.popup{
+    display: none;
+    box-shadow: 0 0 0 0.1em lightgray;
+    height: 550px;
+    width: 400px;
+    position: absolute;
+    z-index: 10;
+    top: 75px;
+    right: 0;
+    margin: 24px auto;
+    overflow-y: auto;
+}
+
+.popup__container{
+    width: 100%;
+    height: 100%;
+    margin: 24px
+}
+
+.popup__categories{
+    margin: 48px 24px;
+    position: relative;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(3, 75px);
+    grid-template-rows: repeat(4, 100px);
+}
+
+.popup__category{
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+}
+
+.popup__category a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.popup__category a:hover{
+    box-shadow: 0 0 0 0.1em lightgray;
+}
+
+.popup__secondary-block{
+    display: none;
+}
+
