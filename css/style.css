@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     font-family: sans-serif;
     color: rgba(0, 0, 0, 0.6);
@@ -9,11 +13,6 @@ a{
     color: rgba(0, 0, 0, 0.6);
 }
 
-.category_container a:focus,
-.navigation__category a:focus {
-    box-shadow: 0 0 0 0.1em lightskyblue;
-}
-
 ul{
     list-style-type: none;
     margin: 0;
@@ -21,14 +20,14 @@ ul{
 }
 
 img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .navigation {
     display: flex;
-    height: 75px;
+    height: 48px;
     position: relative; 
     overflow: visible;
     border: 1px solid red;
@@ -37,22 +36,28 @@ img{
 .navigation__categories{
     margin-left: auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
 }
 
 .navigation__category {
-    padding: 12px 24px;
+    padding: 12px;
     border: 1px solid blue;
+    flex: 1 1 0;
 }
 
-.toggle-popup:checked:focus + label{
+.checkbox__container{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.checkbox_img{
+    display: block;
+}
+
+.toggle-popup:checked:focus + .checkbox__container,
+.toggle-popup:focus + .checkbox__container{
     box-shadow: 0 0 0 0.1em lightskyblue;
 } 
-
-.toggle-popup:focus + label{
-    box-shadow: 0 0 0 0.1em lightskyblue;
-}
 
 .toggle-popup:checked ~ .popup,
 .toggle-popup-secondary-block:checked  ~ .popup__secondary-block
@@ -71,6 +76,13 @@ img{
     background-color: rgba(0,0,0, 0.2);
     text-align: center;
     padding: 6px;
+
+    bottom: 0;
+}
+
+.divider{
+    margin-bottom: 36px;
+    border-top: 1px solid rgba(0,0,0, 0.2);
 }
 
 /*Hidden checkboxes*/
@@ -86,48 +98,73 @@ img{
 .popup{
     display: none;
     box-shadow: 0 0 0 0.1em lightgray;
-    height: 550px;
-    width: 400px;
+    height: 660px;
+    width: 376px;
     position: absolute;
     z-index: 10;
-    top: 75px;
+    top: 24px;
     right: 0;
     margin: 24px auto;
     overflow-y: auto;
 }
 
-.popup__container{
-    width: 100%;
-    height: 100%;
-    margin: 24px
-}
-
 .popup__categories{
-    margin: 48px 24px;
+    margin: 24px 12px;
     position: relative;
     display: grid;
-    gap: 24px;
-    grid-template-columns: repeat(3, 75px);
-    grid-template-rows: repeat(4, 100px);
+    gap: 12px;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(4, 120px);
 }
 
 .popup__category{
     width: 100%;
     height: 100%;
-    border: 1px solid transparent;
 }
 
-.popup__category a{
+.tabbable-container{
     display: inline-block;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
-.popup__category a:hover{
+.popup .tabbable-container:hover{
     box-shadow: 0 0 0 0.1em lightgray;
+}
+
+.tabbable-container:hover:focus,
+.tabbable-container:focus
+{
+    box-shadow: 0 0 0 0.1em lightskyblue;
+}
+
+
+.category__container{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category__image{
+    padding: 12px 24px 12px 24px;
+}
+
+.category_text{
+    margin-bottom: 12px;
 }
 
 .popup__secondary-block{
     display: none;
 }
 
+
+
+.image__container{
+    height: 100%;
+    width: 100%;
+}
